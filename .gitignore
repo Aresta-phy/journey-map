@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.open-next/
+.openai/
+dist/
+public/
+preview-*.png
+npm-debug.log*

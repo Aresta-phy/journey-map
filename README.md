@@ -1,2 +1,65 @@
-# journey-map
-Road journey interactive map
+# 公路篇互动地图
+
+温水和彦与八奈见杏菜公路篇的真实地理互动地图。页面使用 Leaflet 与 OpenStreetMap，地点采用真实坐标和故事定位结合，路线仅用于叙事展示。
+
+## 本地打开
+
+建议使用 Node.js 24；开发和构建至少需要 Node.js 20.19。
+
+```powershell
+npm start
+```
+
+随后打开 <http://localhost:8765/>。
+
+开发模式支持自动刷新：
+
+```powershell
+npm install
+npm run dev
+```
+
+## 构建
+
+```powershell
+npm ci
+npm run build
+```
+
+静态网站会生成在 `dist/` 目录中。
+
+## 上传 GitHub
+
+1. 在 GitHub 新建一个空仓库。
+2. 将本项目全部文件上传至仓库根目录。
+3. 在仓库的 **Settings → Pages → Build and deployment** 中选择 **GitHub Actions**。
+4. 推送至 `main` 或 `master` 分支后，内置工作流会自动构建并发布网站。
+
+## 修改内容
+
+- `journey-data.js`：地点、坐标、剧情和路线。
+- `index.html`：页面标题和固定文字。
+- `styles.css`：颜色、字体、侧栏、标记和弹窗。
+- `app.js`：Leaflet 地图与进度交互。
+
+## 进度操作
+
+- 双圆实心标记：两人已经到达。
+- 带橙色脉冲的双圆标记：当前所在地。
+- 空心星标：计划地点。
+- 点击计划地点后，可以标记两人抵达。
+- 进度保存在当前浏览器的 `localStorage` 中。
+- “恢复故事当前进度”会回到“滨名湖西岸”。
+
+## 当前坐标说明
+
+- 石蕗高中采用其现实参照“爱知县立时习馆高校”的坐标。
+- 家庭餐厅和滨名湖西岸休息点属于故事定位。
+- 下一站使用滨名湖 Garden Park 的真实坐标。
+- 折线路线依据道路数据绘制，但不可作为导航使用。
+
+## 技术组件
+
+- Leaflet 1.9.4
+- OpenStreetMap 标准瓦片
+- Vite

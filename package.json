@@ -1,0 +1,19 @@
+{
+  "name": "road-unit-journey-map",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "predev": "node scripts/prepare-public.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/prepare-public.mjs",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "latest"
+  }
+}

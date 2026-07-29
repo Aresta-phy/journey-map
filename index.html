@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>旅行兼市外检查｜公路篇互动地图</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='25' cy='32' r='13' fill='%23265e78'/%3E%3Ccircle cx='39' cy='32' r='13' fill='%23c66e56'/%3E%3C/svg%3E">
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  >
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="旅程信息">
+      <header class="story-header">
+        <p class="eyebrow">ROAD UNIT ARCHIVE</p>
+        <h1>旅行兼<br>市外检查</h1>
+        <p class="lead">温水和彦与八奈见杏菜的公路篇行程</p>
+      </header>
+
+      <section class="current-card" aria-live="polite">
+        <span class="current-card__label">当前所在地</span>
+        <strong id="currentName">滨名湖西岸</strong>
+        <span id="currentMeta">UNIT 01 · 第一夜</span>
+      </section>
+
+      <nav class="map-actions" aria-label="地图操作">
+        <button type="button" id="locateCurrent">定位当前</button>
+        <button type="button" id="fitJourney">查看全程</button>
+        <button type="button" id="togglePlanned" aria-pressed="false">隐藏计划地点</button>
+      </nav>
+
+      <section class="journey-section">
+        <div class="section-title">
+          <h2>行程记录</h2>
+          <span id="progressCount">2 / 3</span>
+        </div>
+        <ol class="journey-list" id="journeyList"></ol>
+      </section>
+
+      <section class="legend-panel" aria-label="标记说明">
+        <div><span class="legend-dot legend-dot--arrived"><i></i><b></b></span>两人已到达</div>
+        <div><span class="legend-dot legend-dot--planned">☆</span>计划地点</div>
+        <div><span class="legend-line legend-line--done"></span>已完成路线</div>
+        <div><span class="legend-line legend-line--planned"></span>下一段路线</div>
+      </section>
+
+      <footer class="sidebar-footer">
+        <button type="button" class="text-button" id="resetProgress">恢复故事当前进度</button>
+        <p>地点采用真实坐标与故事定位结合。路线只用于叙事展示。</p>
+      </footer>
+    </aside>
+
+    <main class="map-panel">
+      <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-controls="sidebar" aria-expanded="true">
+        <span></span><span></span>
+        <span class="sr-only">收起或展开行程信息</span>
+      </button>
+
+      <div class="map-caption">
+        <span>当前路线</span>
+        <strong id="routeCaption">石蕗高中 → 滨名湖西岸</strong>
+      </div>
+
+      <div id="map" role="application" aria-label="公路篇真实地理互动地图"></div>
+      <div class="map-fallback" id="mapFallback">
+        <strong>地图底图暂时无法载入</strong>
+        <span>请连接网络后重新打开此页面。</span>
+      </div>
+      <noscript>此互动地图需要启用 JavaScript。</noscript>
+    </main>
+  </div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="./journey-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
