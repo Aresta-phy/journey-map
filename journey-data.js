@@ -17,6 +17,7 @@ window.JOURNEY_DATA = {
       shortName: "餐厅遗址",
       coordinates: [34.7654, 137.4042],
       coordinateNote: "故事定位",
+      sourceUrl: "https://www.google.com/maps/search/?api=1&query=34.7654%2C137.4042",
       summary: "共同生活一个月的据点。火灾后只带走围裙、地图与烧黑的门铃。",
       quote: "两盒留到明天的布丁就在里面。"
     },
@@ -29,7 +30,7 @@ window.JOURNEY_DATA = {
       shortName: "石蕗高中",
       coordinates: [34.77777, 137.43049],
       coordinateNote: "现实参照：爱知县立时习馆高校",
-      sourceUrl: "https://www.wikidata.org/wiki/Q11494255",
+      sourceUrl: "https://www.google.com/maps/search/?api=1&query=34.77777%2C137.43049",
       summary: "两人留下循环广播和路线告示，从丰桥共同出发。",
       quote: "「差不多也厌倦了不幸，是时候去寻找幸福了。」"
     },
@@ -43,6 +44,7 @@ window.JOURNEY_DATA = {
       shortName: "滨名湖西岸",
       coordinates: [34.7218, 137.5164],
       coordinateNote: "故事定位：湖西市一侧",
+      sourceUrl: "https://www.google.com/maps/search/?api=1&query=34.7218%2C137.5164",
       summary: "更换轮胎，留下第一份市外广播，在车里度过离开丰桥后的第一夜。",
       quote: "「丰桥还在呼唤我们。」"
     },
@@ -56,7 +58,7 @@ window.JOURNEY_DATA = {
       shortName: "湖畔展望塔",
       coordinates: [34.71342, 137.59928],
       coordinateNote: "真实地点：滨名湖Garden Park",
-      sourceUrl: "https://www.pref.shizuoka.jp/kensei/shisetsu/sports/1007394.html",
+      sourceUrl: "https://www.google.com/maps/search/?api=1&query=34.71342%2C137.59928",
       summary: "更换受损车轮后登上展望塔，确认道路与白色构造物，留下两人的名字和共同旅行照片。",
       quote: "「寻找幸福也要遵守交通规则吧。」"
     },
@@ -69,7 +71,7 @@ window.JOURNEY_DATA = {
       shortName: "ACT CITY滨松",
       coordinates: [34.7057695, 137.7365503],
       coordinateNote: "真实地点：滨松市中央区板屋町111-1",
-      sourceUrl: "https://www.actcity.jp/access/",
+      sourceUrl: "https://www.google.com/maps/search/?api=1&query=34.7057695%2C137.7365503",
       summary: "计划进入滨松市区，在音乐厅扩大广播并寻找第二夜的落脚处。",
       quote: "下午五点，空城仍在催促人们回家。"
     }
