@@ -15,6 +15,7 @@
   let map;
   let markerLayer;
   let routeLayer;
+  let mysteryLayer;
   const markerById = new Map();
 
   initialiseMap();
@@ -69,8 +70,9 @@
       maxWidth: 140
     }).addTo(map);
 
-    markerLayer = L.layerGroup().addTo(map);
+    mysteryLayer = L.layerGroup().addTo(map);
     routeLayer = L.layerGroup().addTo(map);
+    markerLayer = L.layerGroup().addTo(map);
 
     map.whenReady(() => {
       fallback.classList.remove("is-visible");
@@ -81,8 +83,10 @@
   function renderAll(options = {}) {
     markerLayer.clearLayers();
     routeLayer.clearLayers();
+    mysteryLayer.clearLayers();
     markerById.clear();
 
+    renderMysteries();
     renderRoutes();
     renderMarkers();
     renderSidebar();
@@ -92,6 +96,69 @@
       const marker = markerById.get(options.openId);
       if (marker) marker.openPopup();
     }
+  }
+
+  function renderMysteries() {
+    (data.mysteries || []).forEach((mystery) => {
+      const area = L.circle(mystery.coordinates, {
+        radius: mystery.radiusMeters,
+        color: "#9d6a5d",
+        weight: 2,
+        opacity: 0.8,
+        fillColor: "#eee9df",
+        fillOpacity: 0.34,
+        dashArray: "7 9",
+        interactive: true
+      });
+
+      const marker = L.marker(mystery.coordinates, {
+        icon: L.divIcon({
+          className: "map-icon-wrap",
+          html: "<div class=\"mystery-marker\" aria-hidden=\"true\">?</div>",
+          iconSize: [46, 46],
+          iconAnchor: [23, 23],
+          popupAnchor: [0, -22]
+        }),
+        keyboard: true,
+        title: mystery.name,
+        zIndexOffset: 500
+      });
+
+      const popup = `
+        <article class="popup-card popup-card--mystery">
+          <div class="popup-kicker">UNIT 02 · 未确认区域</div>
+          <h3>${escapeHtml(mystery.name)}</h3>
+          <div class="popup-coordinate">${escapeHtml(mystery.coordinateNote)}</div>
+          <p>${escapeHtml(mystery.summary)}</p>
+          <blockquote>${escapeHtml(mystery.quote)}</blockquote>
+        </article>
+      `;
+
+      area.bindTooltip(`${mystery.name} · 大致范围`, {
+        sticky: true,
+        className: "story-tooltip"
+      });
+      area.bindPopup(popup, {
+        className: "story-popup",
+        maxWidth: 330,
+        minWidth: 260,
+        closeButton: true
+      });
+      marker.bindTooltip(mystery.name, {
+        direction: "top",
+        offset: [0, -18],
+        className: "story-tooltip"
+      });
+      marker.bindPopup(popup, {
+        className: "story-popup",
+        maxWidth: 330,
+        minWidth: 260,
+        closeButton: true
+      });
+
+      area.addTo(mysteryLayer);
+      marker.addTo(mysteryLayer);
+    });
   }
 
   function renderRoutes() {
@@ -391,6 +458,9 @@
       return showPlanned || getStatus(location) !== "planned";
     });
     const bounds = L.latLngBounds(visibleLocations.map((location) => location.coordinates));
+    (data.mysteries || []).forEach((mystery) => {
+      bounds.extend(L.circle(mystery.coordinates, { radius: mystery.radiusMeters }).getBounds());
+    });
     map.fitBounds(bounds, {
       paddingTopLeft: [54, 54],
       paddingBottomRight: [54, 54],
