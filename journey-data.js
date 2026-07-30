@@ -1,10 +1,10 @@
 window.JOURNEY_DATA = {
   title: "旅行兼市外检查",
-  storageKey: "nukumizu-yanami-road-map-v1",
-  initialCurrentId: "hamanako-west",
-  initialArrivedIds: ["tsuwabuki", "hamanako-west"],
+  storageKey: "nukumizu-yanami-road-map-v2",
+  initialCurrentId: "garden-tower",
+  initialArrivedIds: ["tsuwabuki", "hamanako-west", "garden-tower"],
   view: {
-    center: [34.742, 137.512],
+    center: [34.681, 137.67],
     zoom: 11
   },
   locations: [
@@ -50,14 +50,39 @@ window.JOURNEY_DATA = {
       id: "garden-tower",
       order: 3,
       kind: "journey",
-      unit: "NEXT",
+      unit: "UNIT 02",
+      currentLabel: "第二日",
       name: "滨名湖Garden Park展望塔",
       shortName: "湖畔展望塔",
       coordinates: [34.71342, 137.59928],
       coordinateNote: "真实地点：滨名湖Garden Park",
       sourceUrl: "https://www.pref.shizuoka.jp/kensei/shisetsu/sports/1007394.html",
-      summary: "高五十米的展望塔。计划明日抵达，从高处确认道路与湖面。",
-      quote: "银色道路停在展望塔下。"
+      summary: "更换受损车轮后登上展望塔，确认道路与白色构造物，留下两人的名字和共同旅行照片。",
+      quote: "「寻找幸福也要遵守交通规则吧。」"
+    },
+    {
+      id: "act-city",
+      order: 4,
+      kind: "journey",
+      unit: "NEXT",
+      name: "ACT CITY滨松",
+      shortName: "ACT CITY滨松",
+      coordinates: [34.7057695, 137.7365503],
+      coordinateNote: "真实地点：滨松市中央区板屋町111-1",
+      sourceUrl: "https://www.actcity.jp/access/",
+      summary: "计划进入滨松市区，在音乐厅扩大广播并寻找第二夜的落脚处。",
+      quote: "下午五点，空城仍在催促人们回家。"
+    }
+  ],
+  mysteries: [
+    {
+      id: "white-structure",
+      name: "白色构造物",
+      coordinates: [34.62, 137.74],
+      radiusMeters: 5000,
+      coordinateNote: "UNIT 02：仅确认大致方向与范围",
+      summary: "从展望塔望见的巨大白色弧面。距离和性质尚未确认，当前路线不接近。",
+      quote: "白色构造物留在路线侧方，等待下一次确认。"
     }
   ],
   routeSegments: [
@@ -207,6 +232,36 @@ window.JOURNEY_DATA = {
         [34.712503, 137.603519],
         [34.712666, 137.602463],
         [34.71342, 137.59928]
+      ]
+    },
+    {
+      id: "route-tower-to-act-city",
+      from: "garden-tower",
+      to: "act-city",
+      coordinates: [
+        [34.71342, 137.59928],
+        [34.712466, 137.599418],
+        [34.712594, 137.603072],
+        [34.711354, 137.605865],
+        [34.707706, 137.609658],
+        [34.703368, 137.610587],
+        [34.703545, 137.620453],
+        [34.704385, 137.621093],
+        [34.702884, 137.625584],
+        [34.701458, 137.624918],
+        [34.699231, 137.630631],
+        [34.697144, 137.636881],
+        [34.696728, 137.64333],
+        [34.697603, 137.647222],
+        [34.699074, 137.671756],
+        [34.697626, 137.683612],
+        [34.700296, 137.703024],
+        [34.699218, 137.722458],
+        [34.699985, 137.727035],
+        [34.703393, 137.728726],
+        [34.705235, 137.728419],
+        [34.706011, 137.736496],
+        [34.7057695, 137.7365503]
       ]
     }
   ]

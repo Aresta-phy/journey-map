@@ -316,6 +316,19 @@ button {
   font-size: 15px;
 }
 
+.legend-dot--mystery {
+  color: #8f5d50;
+  background: rgba(238, 233, 223, 0.78);
+  border-color: #9d6a5d;
+  border-style: dotted;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.legend-panel__wide {
+  grid-column: 1 / -1;
+}
+
 .legend-line {
   display: inline-block;
   flex: 0 0 28px;
@@ -482,7 +495,8 @@ button {
 
 .arrival-marker,
 .planned-marker,
-.memory-marker {
+.memory-marker,
+.mystery-marker {
   position: relative;
   display: grid;
   width: 58px;
@@ -586,6 +600,21 @@ button {
 
 .memory-marker span:last-child {
   transform: rotate(-45deg);
+}
+
+.mystery-marker {
+  width: 46px;
+  height: 46px;
+  color: #8f5d50;
+  background: rgba(255, 250, 240, 0.92);
+  border: 2px dotted #9d6a5d;
+  box-shadow: 0 5px 15px rgba(24, 35, 41, 0.16);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+}
+
+.popup-card--mystery blockquote {
+  border-left-color: #9d6a5d;
 }
 
 .story-tooltip {
