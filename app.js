@@ -275,7 +275,7 @@
     }
 
     const source = location.sourceUrl
-      ? `<a class="popup-source" href="${location.sourceUrl}" target="_blank" rel="noreferrer">在高德地图中查看 ↗</a>`
+      ? `<a class="popup-source" href="${location.sourceUrl}" target="_blank" rel="noreferrer">查看地点依据 ↗</a>`
       : "";
 
     return `
