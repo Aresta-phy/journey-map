@@ -1,11 +1,11 @@
 window.JOURNEY_DATA = {
   title: "旅行兼市外检查",
-  storageKey: "nukumizu-yanami-road-map-v2",
-  initialCurrentId: "garden-tower",
-  initialArrivedIds: ["tsuwabuki", "hamanako-west", "garden-tower"],
+  storageKey: "nukumizu-yanami-road-map-v3",
+  initialCurrentId: "act-city",
+  initialArrivedIds: ["tsuwabuki", "hamanako-west", "garden-tower", "act-city"],
   view: {
-    center: [34.681, 137.67],
-    zoom: 11
+    center: [34.747, 137.866],
+    zoom: 10
   },
   locations: [
     {
@@ -64,25 +64,40 @@ window.JOURNEY_DATA = {
       id: "act-city",
       order: 4,
       kind: "journey",
-      unit: "NEXT",
+      unit: "UNIT 03",
+      currentLabel: "第二夜",
       name: "ACT CITY滨松",
       shortName: "ACT CITY滨松",
       coordinates: [34.7057695, 137.7365503],
       coordinateNote: "真实地点：滨松市中央区板屋町111-1",
       sourceUrl: "https://www.actcity.jp/access/",
-      summary: "计划进入滨松市区，在音乐厅扩大广播并寻找第二夜的落脚处。",
-      quote: "下午五点，空城仍在催促人们回家。"
+      summary: "五点的归家旋律结束后，两人在音乐厅留下循环广播，共同制作滨松饺子，并在高层酒店度过第二夜。",
+      events: ["五点广播", "音乐厅广播", "滨松饺子", "第二夜"],
+      quote: "「明早记得叫我。」"
+    },
+    {
+      id: "kakegawa-road-station",
+      order: 5,
+      kind: "journey",
+      unit: "NEXT",
+      name: "道之驿挂川",
+      shortName: "挂川茶园休息站",
+      coordinates: [34.794171, 138.076099],
+      coordinateNote: "真实地点：静冈县挂川市八坂882-1",
+      sourceUrl: "https://www.city.kakegawa.shizuoka.jp/kanko/spot-list/michinoeki.html",
+      summary: "计划沿国道一号继续向东，在挂川茶园旁的休息站停靠，让驾驶员休息并补充旅行记录。",
+      quote: "地图的下一页，印着茶园与冰淇淋。"
     }
   ],
   mysteries: [
     {
       id: "white-structure",
-      name: "白色构造物",
+      name: "白色残骸",
       coordinates: [34.62, 137.74],
       radiusMeters: 5000,
-      coordinateNote: "UNIT 02：仅确认大致方向与范围",
-      summary: "从展望塔望见的巨大白色弧面。距离和性质尚未确认，当前路线不接近。",
-      quote: "白色构造物留在路线侧方，等待下一次确认。"
+      coordinateNote: "UNIT 03：中田岛砂丘南方海域，距 ACT CITY 约十公里",
+      summary: "从 ACT CITY 南窗确认与丰桥、展望塔所见为同一物体。弧面裂痕与延伸结构已经可见，但性质仍未确认。",
+      quote: "暂不接近。"
     }
   ],
   routeSegments: [
@@ -262,6 +277,50 @@ window.JOURNEY_DATA = {
         [34.705235, 137.728419],
         [34.706011, 137.736496],
         [34.7057695, 137.7365503]
+      ]
+    },
+    {
+      id: "route-act-city-to-kakegawa",
+      from: "act-city",
+      to: "kakegawa-road-station",
+      coordinates: [
+        [34.7057695, 137.7365503],
+        [34.706011, 137.736496],
+        [34.706216, 137.737839],
+        [34.708188, 137.737494],
+        [34.70802, 137.744301],
+        [34.709923, 137.75214],
+        [34.721074, 137.780184],
+        [34.724651, 137.785112],
+        [34.739012, 137.789909],
+        [34.74269, 137.790214],
+        [34.748858, 137.787669],
+        [34.747756, 137.78818],
+        [34.748393, 137.798993],
+        [34.746347, 137.82385],
+        [34.748704, 137.855137],
+        [34.753002, 137.871663],
+        [34.755102, 137.889907],
+        [34.757901, 137.89714],
+        [34.760461, 137.900243],
+        [34.759194, 137.902202],
+        [34.759686, 137.904984],
+        [34.752829, 137.908231],
+        [34.758034, 137.924945],
+        [34.757175, 137.934045],
+        [34.762929, 137.957928],
+        [34.762991, 137.969813],
+        [34.766752, 137.97537],
+        [34.775553, 137.982156],
+        [34.787799, 138.011993],
+        [34.78816, 138.017878],
+        [34.783785, 138.032291],
+        [34.786387, 138.047945],
+        [34.786057, 138.057457],
+        [34.789699, 138.070278],
+        [34.794391, 138.077077],
+        [34.794295, 138.075825],
+        [34.794171, 138.076099]
       ]
     }
   ]
