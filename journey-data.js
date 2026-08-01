@@ -72,8 +72,7 @@ window.JOURNEY_DATA = {
       coordinateNote: "真实地点：滨松市中央区板屋町111-1",
       sourceUrl: "https://www.actcity.jp/access/",
       summary: "五点的归家旋律结束后，两人在音乐厅留下循环广播，共同制作滨松饺子，并在高层酒店度过第二夜。",
-      events: ["五点广播", "音乐厅广播", "滨松饺子", "第二夜"],
-      quote: "「明早记得叫我。」"
+      quote: "离开前，两人演奏。"
     },
     {
       id: "kakegawa-road-station",
