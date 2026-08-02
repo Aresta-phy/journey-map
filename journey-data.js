@@ -1,10 +1,10 @@
 window.JOURNEY_DATA = {
   title: "旅行兼市外检查",
-  storageKey: "nukumizu-yanami-road-map-v3",
-  initialCurrentId: "act-city",
-  initialArrivedIds: ["tsuwabuki", "hamanako-west", "garden-tower", "act-city"],
+  storageKey: "nukumizu-yanami-road-map-v4",
+  initialCurrentId: "kakegawa-road-station",
+  initialArrivedIds: ["tsuwabuki", "hamanako-west", "garden-tower", "act-city", "kakegawa-road-station"],
   view: {
-    center: [34.747, 137.866],
+    center: [34.79, 138.02],
     zoom: 10
   },
   locations: [
@@ -78,14 +78,28 @@ window.JOURNEY_DATA = {
       id: "kakegawa-road-station",
       order: 5,
       kind: "journey",
-      unit: "NEXT",
+      unit: "UNIT 04",
+      currentLabel: "第三日",
       name: "道之驿挂川",
       shortName: "挂川茶园休息站",
       coordinates: [34.794171, 138.076099],
       coordinateNote: "真实地点：静冈县挂川市八坂882-1",
       sourceUrl: "https://www.city.kakegawa.shizuoka.jp/kanko/spot-list/michinoeki.html",
-      summary: "计划沿国道一号继续向东，在挂川茶园旁的休息站停靠，让驾驶员休息并补充旅行记录。",
-      quote: "地图的下一页，印着茶园与冰淇淋。"
+      summary: "在茶园旁休息时，八奈见认出童年家庭照的拍摄地，并与温水留下新的旅行照片。两张照片被并排放进相册，没有覆盖彼此的位置。",
+      quote: "两张照片隔着装订线，各自朝向不同的时间。"
+    },
+    {
+      id: "oigawa-west",
+      order: 6,
+      kind: "journey",
+      unit: "NEXT",
+      name: "大井川西岸",
+      shortName: "大井川西岸",
+      coordinates: [34.839143, 138.135427],
+      coordinateNote: "故事定位：国道1号新大井川桥西岸",
+      sourceUrl: "https://www.cbr.mlit.go.jp/hamamatsu/cms/news/logs/20230703145153/20230703145153.pdf",
+      summary: "收音机传来大井川流域桥梁受损的断续警报。计划在西岸停靠，等到天亮后再确认桥梁与绕行路线。",
+      quote: "再往前，大井川横在纸面中央。"
     }
   ],
   mysteries: [
@@ -320,6 +334,41 @@ window.JOURNEY_DATA = {
         [34.794391, 138.077077],
         [34.794295, 138.075825],
         [34.794171, 138.076099]
+      ]
+    },
+    {
+      id: "route-kakegawa-to-oigawa-west",
+      from: "kakegawa-road-station",
+      to: "oigawa-west",
+      coordinates: [
+        [34.794171, 138.076099],
+        [34.794295, 138.075825],
+        [34.793492, 138.07591],
+        [34.795331, 138.0733],
+        [34.798815, 138.074788],
+        [34.801266, 138.076673],
+        [34.804298, 138.076436],
+        [34.806105, 138.078587],
+        [34.808153, 138.079549],
+        [34.809143, 138.081364],
+        [34.810535, 138.081829],
+        [34.813629, 138.08447],
+        [34.815779, 138.08754],
+        [34.81856, 138.090147],
+        [34.819843, 138.09373],
+        [34.822294, 138.097182],
+        [34.820995, 138.101183],
+        [34.820765, 138.108296],
+        [34.818827, 138.112887],
+        [34.819363, 138.116923],
+        [34.823001, 138.120452],
+        [34.82532, 138.121157],
+        [34.834743, 138.116965],
+        [34.837293, 138.117503],
+        [34.838203, 138.118736],
+        [34.838543, 138.120599],
+        [34.837089, 138.128762],
+        [34.839143, 138.135427]
       ]
     }
   ]
