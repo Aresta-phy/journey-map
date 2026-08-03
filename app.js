@@ -16,6 +16,7 @@
   let markerLayer;
   let routeLayer;
   let mysteryLayer;
+  let storyPointLayer;
   const markerById = new Map();
 
   initialiseMap();
@@ -72,6 +73,7 @@
 
     mysteryLayer = L.layerGroup().addTo(map);
     routeLayer = L.layerGroup().addTo(map);
+    storyPointLayer = L.layerGroup().addTo(map);
     markerLayer = L.layerGroup().addTo(map);
 
     map.whenReady(() => {
@@ -84,10 +86,12 @@
     markerLayer.clearLayers();
     routeLayer.clearLayers();
     mysteryLayer.clearLayers();
+    storyPointLayer.clearLayers();
     markerById.clear();
 
     renderMysteries();
     renderRoutes();
+    renderStoryPoints();
     renderMarkers();
     renderSidebar();
     renderHeader();
@@ -186,6 +190,46 @@
 
       underlay.addTo(routeLayer);
       line.addTo(routeLayer);
+    });
+  }
+
+  function renderStoryPoints() {
+    (data.storyPoints || []).forEach((point) => {
+      const marker = L.marker(point.coordinates, {
+        icon: L.divIcon({
+          className: "map-icon-wrap",
+          html: `<div class="story-point-marker story-point-marker--${escapeHtml(point.kind)}" aria-hidden="true">${escapeHtml(point.symbol)}</div>`,
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -14]
+        }),
+        keyboard: true,
+        title: point.name,
+        zIndexOffset: point.kind === "bridge" ? 1300 : 1050
+      });
+
+      const popup = `
+        <article class="popup-card popup-card--story-point">
+          <div class="popup-kicker">${escapeHtml(point.unit)} · 剧情地点</div>
+          <h3>${escapeHtml(point.name)}</h3>
+          <div class="popup-coordinate">${escapeHtml(point.coordinateNote)}</div>
+          <p>${escapeHtml(point.summary)}</p>
+          <blockquote>${escapeHtml(point.quote)}</blockquote>
+        </article>
+      `;
+
+      marker.bindTooltip(point.name, {
+        direction: "top",
+        offset: [0, -13],
+        className: "story-tooltip"
+      });
+      marker.bindPopup(popup, {
+        className: "story-popup",
+        maxWidth: 330,
+        minWidth: 260,
+        closeButton: true
+      });
+      marker.addTo(storyPointLayer);
     });
   }
 
@@ -461,6 +505,7 @@
     (data.mysteries || []).forEach((mystery) => {
       bounds.extend(L.circle(mystery.coordinates, { radius: mystery.radiusMeters }).getBounds());
     });
+    (data.storyPoints || []).forEach((point) => bounds.extend(point.coordinates));
     map.fitBounds(bounds, {
       paddingTopLeft: [54, 54],
       paddingBottomRight: [54, 54],

@@ -1,11 +1,11 @@
 window.JOURNEY_DATA = {
   title: "旅行兼市外检查",
-  storageKey: "nukumizu-yanami-road-map-v4",
-  initialCurrentId: "kakegawa-road-station",
-  initialArrivedIds: ["tsuwabuki", "hamanako-west", "garden-tower", "act-city", "kakegawa-road-station"],
+  storageKey: "nukumizu-yanami-road-map-v5",
+  initialCurrentId: "oigawa-east",
+  initialArrivedIds: ["tsuwabuki", "hamanako-west", "garden-tower", "act-city", "kakegawa-road-station", "oigawa-west", "oigawa-east"],
   view: {
-    center: [34.79, 138.02],
-    zoom: 10
+    center: [34.849, 138.135],
+    zoom: 13
   },
   locations: [
     {
@@ -92,14 +92,85 @@ window.JOURNEY_DATA = {
       id: "oigawa-west",
       order: 6,
       kind: "journey",
-      unit: "NEXT",
-      name: "大井川西岸",
-      shortName: "大井川西岸",
+      unit: "UNIT 05",
+      name: "大井川国道断桥西岸",
+      shortName: "断桥西岸",
       coordinates: [34.839143, 138.135427],
       coordinateNote: "故事定位：国道1号新大井川桥西岸",
       sourceUrl: "https://www.cbr.mlit.go.jp/hamamatsu/cms/news/logs/20230703145153/20230703145153.pdf",
-      summary: "收音机传来大井川流域桥梁受损的断续警报。计划在西岸停靠，等到天亮后再确认桥梁与绕行路线。",
-      quote: "再往前，大井川横在纸面中央。"
+      summary: "清晨抵达大井川西岸，国道桥中央已经断裂。两人从挂川观光手册找到北侧维护桥，步行确认后决定驾车绕行。",
+      quote: "桥中间断了，过不去。"
+    },
+    {
+      id: "oigawa-east",
+      order: 7,
+      kind: "journey",
+      unit: "UNIT 05",
+      currentLabel: "河对岸",
+      name: "大井川东岸",
+      shortName: "大井川东岸",
+      coordinates: [34.856961, 138.139921],
+      coordinateNote: "故事定位：北侧维护桥东岸",
+      summary: "两人通过狭窄的维护桥后，余震使西侧引桥坍塌，短途返程被切断。八奈见用胶带修好裂开的地图，两人选择继续向东。",
+      quote: "经过那条透明胶带以后，河流看起来比早晨窄了一点。"
+    },
+    {
+      id: "shizuoka-city",
+      order: 8,
+      kind: "journey",
+      unit: "NEXT",
+      name: "静冈市区",
+      shortName: "静冈市区",
+      coordinates: [34.97133, 138.389318],
+      coordinateNote: "计划定位：静冈站周边",
+      summary: "计划沿岛田一侧继续向东，进入静冈市寻找住宿、道路资料与仍能使用的广播设施。",
+      quote: "地图东侧写下：岛田——静冈。"
+    }
+  ],
+  storyPoints: [
+    {
+      id: "oigawa-national-bridge-break",
+      kind: "warning",
+      symbol: "×",
+      unit: "UNIT 05",
+      name: "国道桥断裂处",
+      coordinates: [34.840585, 138.140124],
+      coordinateNote: "故事定位：国道1号新大井川桥中央",
+      summary: "清晨从西岸确认国道桥中央已经断裂，原定路线无法通行，两人因此转向北侧寻找其他桥梁。",
+      quote: "引桥中央的路面已经拱起，裂口里露出碎石。"
+    },
+    {
+      id: "oigawa-maintenance-bridge",
+      kind: "bridge",
+      symbol: "桥",
+      unit: "UNIT 05",
+      name: "北侧维护桥",
+      coordinates: [34.85536, 138.13517],
+      coordinateNote: "故事定位：国道桥北侧的狭窄维护桥",
+      summary: "两人徒步检查并清理入口后，由温水控制车辆，八奈见负责观察桥沿与错位接缝，共同渡过大井川。",
+      quote: "桥上看着右侧距离，接缝提前告诉我。"
+    },
+    {
+      id: "oigawa-west-approach-collapse",
+      kind: "warning",
+      symbol: "×",
+      unit: "UNIT 05",
+      name: "西侧引桥坍塌",
+      coordinates: [34.85376, 138.130421],
+      coordinateNote: "故事定位：维护桥西侧引道",
+      summary: "车辆驶上东岸后发生余震，西侧引桥随即坍塌，刚刚经过的道路无法原路返回。",
+      quote: "西侧引桥坍塌。"
+    },
+    {
+      id: "oigawa-west-overnight",
+      kind: "rest",
+      symbol: "休",
+      unit: "UNIT 05",
+      name: "西岸夜间停靠处",
+      coordinates: [34.838543, 138.120599],
+      coordinateNote: "故事定位：抵达大井川前的西岸停靠处",
+      summary: "两人在傍晚抵达大井川附近，没有连夜检查受损桥梁，而是在西岸停车过夜，准备等天亮后确认道路。",
+      quote: "先找地方停靠，天亮以后确认桥梁状况。"
     }
   ],
   mysteries: [
@@ -369,6 +440,71 @@ window.JOURNEY_DATA = {
         [34.838543, 138.120599],
         [34.837089, 138.128762],
         [34.839143, 138.135427]
+      ]
+    },
+    {
+      id: "route-oigawa-crossing",
+      from: "oigawa-west",
+      to: "oigawa-east",
+      coordinates: [
+        [34.839143, 138.135427],
+        [34.837113, 138.129428],
+        [34.836968, 138.128463],
+        [34.837006, 138.127093],
+        [34.838067, 138.122127],
+        [34.837823, 138.122035],
+        [34.837528, 138.122458],
+        [34.837537, 138.122747],
+        [34.8436, 138.121003],
+        [34.845657, 138.120132],
+        [34.847943, 138.119635],
+        [34.851204, 138.118421],
+        [34.850968, 138.117715],
+        [34.850993, 138.117373],
+        [34.851227, 138.117104],
+        [34.851552, 138.117139],
+        [34.852717, 138.11954],
+        [34.850554, 138.120952],
+        [34.850377, 138.121638],
+        [34.85376, 138.130421],
+        [34.856961, 138.139921]
+      ]
+    },
+    {
+      id: "route-oigawa-to-shizuoka",
+      from: "oigawa-east",
+      to: "shizuoka-city",
+      coordinates: [
+        [34.856961, 138.139921],
+        [34.871998, 138.167721],
+        [34.880815, 138.191662],
+        [34.890542, 138.226318],
+        [34.894663, 138.23552],
+        [34.90023, 138.243665],
+        [34.910973, 138.254796],
+        [34.92101, 138.267638],
+        [34.928504, 138.273644],
+        [34.968518, 138.291806],
+        [34.981513, 138.294463],
+        [34.980748, 138.291735],
+        [34.979893, 138.291772],
+        [34.980591, 138.291424],
+        [34.982912, 138.294041],
+        [34.98699, 138.294634],
+        [34.986663, 138.296714],
+        [34.990518, 138.299105],
+        [34.9859, 138.308178],
+        [34.985611, 138.313076],
+        [34.983045, 138.316994],
+        [34.984275, 138.327849],
+        [34.983732, 138.333516],
+        [34.977479, 138.349432],
+        [34.976056, 138.361427],
+        [34.977307, 138.368466],
+        [34.970618, 138.384621],
+        [34.973558, 138.390355],
+        [34.971956, 138.391355],
+        [34.97133, 138.389318]
       ]
     }
   ]
